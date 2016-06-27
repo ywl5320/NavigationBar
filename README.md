@@ -1,0 +1,58 @@
+# NavigationBar
+####标题导航栏，两三句代码即可实现
+XML布局：<br/>
+
+        <com.ywl5320.navigationbar.bar.NavitationLayout
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ffffff"/>
+
+实例图片：<br/>
+####1、
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav1.gif)<br/>
+代码如下：<br/>
+
+        /**
+         *
+         * @param context 上下文
+         * @param titles 标题栏
+         * @param viewPager
+         * @param unselectedcolor 未选中字体颜色
+         * @param setectedcolor 选中字体颜色
+         * @param txtUnselectedSize 未选中字体大小
+         * @param txtSelectedSize 选中字体大小
+         * @param currentPosition 当前viewpager的位置
+         * @param widOffset 导航条的边距
+         * @param smoothScroll 滑动类型
+         */
+        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 0, 0, true);
+        navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
+        
+####2、
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav2.gif)<br/>
+代码如下：<br/>
+
+        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 0, 0, true);
+        navitationLayout.setBgLine(this, 1, R.color.colorAccent);
+        navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
+        
+####3、
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav3.gif)<br/>
+代码如下：<br/>
+
+        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 0, 12, true);
+        navitationLayout.setBgLine(this, 1, R.color.colorAccent);
+        navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
+        
+####4、
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav4.gif)<br/>
+代码如下：<br/>
+
+        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 14, 18, 0, 12, true);
+        navitationLayout.setBgLine(this, 1, R.color.colorAccent);
+        navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
+
+
+    
+create by ywl5320
