@@ -51,6 +51,14 @@ XML布局：<br/>
 
         navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 14, 18, 0, 12, true);
         navitationLayout.setBgLine(this, 1, R.color.colorAccent);
+        navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);<br/>
+
+####5、
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/img5.gif)
+代码如下：<br/>
+
+        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 0, 12, true, R.color.color_333333, 1f, 15f, 15f);
+        navitationLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
 
 
