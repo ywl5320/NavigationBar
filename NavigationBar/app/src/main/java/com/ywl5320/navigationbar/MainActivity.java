@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 //        navitationLayout.setBgLine(this, 1, R.color.colorAccent);
 //        navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
 
-        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 14, 18, 0, 12, true);
+        navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 0, 12, true, R.color.color_333333, 1f, 15f, 15f);
         navitationLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
 

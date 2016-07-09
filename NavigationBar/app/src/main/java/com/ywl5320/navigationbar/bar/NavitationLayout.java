@@ -64,6 +64,9 @@ public class NavitationLayout extends RelativeLayout{
     private void setTitles(Context context, String[] titles, final boolean smoothScroll)
     {
         this.textViews = new TextView[titles.length];
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0,LayoutParams.MATCH_PARENT);
+        params.weight = 1;
+        params.gravity = Gravity.CENTER;
         // 循环，根据标题栏动态生成TextView来显示标题，每个标题栏的宽度比例为1:1,其中的内容居中。
         for(int i = 0; i < titles.length; i++)
         {
@@ -82,10 +85,45 @@ public class NavitationLayout extends RelativeLayout{
                     }
                 }
             });
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0,LayoutParams.MATCH_PARENT);
-            params.weight = 1;
-            params.gravity = Gravity.CENTER;
             titleLayout.addView(textView, params);
+        }
+    }
+
+
+    private void setTitles(Context context, String[] titles, final boolean smoothScroll, int splilinecolor, float splilinewidth, float topoffset, float bottomoffset)
+    {
+        this.textViews = new TextView[titles.length];
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0,LayoutParams.MATCH_PARENT);
+        params.weight = 1;
+        params.gravity = Gravity.CENTER;
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dip2px(context, splilinewidth),LayoutParams.MATCH_PARENT);
+        lp.setMargins(0, dip2px(context, topoffset), 0, dip2px(context, bottomoffset));
+        // 循环，根据标题栏动态生成TextView来显示标题，每个标题栏的宽度比例为1:1,其中的内容居中。
+        for(int i = 0; i < titles.length; i++)
+        {
+            final int index = i;
+            TextView textView = new TextView(context);
+            textView.setText(titles[i]);
+            textView.setGravity(Gravity.CENTER);
+            textViews[i] = textView;
+            textViews[i].setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewPager.setCurrentItem(index, smoothScroll);
+                    if(onTitleClickListener != null)
+                    {
+                        onTitleClickListener.onTitleClick(v);
+                    }
+                }
+            });
+            titleLayout.addView(textView, params);
+            if(i < titles.length - 1)
+            {
+                View view = new View(context);
+                view.setBackgroundColor(splilinecolor);
+                titleLayout.addView(view, lp);
+            }
         }
 
     }
@@ -160,6 +198,48 @@ public class NavitationLayout extends RelativeLayout{
 
         viewPager.setCurrentItem(currentPosition);
         setTitles(context, titles, smoothScroll);
+        setUnselectedTxtColor(context, unselectedcolor, txtUnselectedSize);
+        setSelectedTxtColor(context, setectedcolor, txtSelectedSize, currentPosition);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                moveBar(navLine, navWidth, positionOffset, position);
+                if(onNaPageChangeListener != null)
+                {
+                    onNaPageChangeListener.onPageScrolled(position, positionOffset, positionOffsetPixels);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                setSelectedTxtColor(context, setectedcolor, txtSelectedSize, position);
+                if(onNaPageChangeListener != null)
+                {
+                    onNaPageChangeListener.onPageSelected(position);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                if(onNaPageChangeListener != null)
+                {
+                    onNaPageChangeListener.onPageScrollStateChanged(state);
+                }
+            }
+        });
+    }
+
+    public void setViewPager(final Context context, String[] titles, ViewPager viewPager, final int unselectedcolor, final int setectedcolor, int txtUnselectedSize, final int txtSelectedSize, final int currentPosition, int widOffset, boolean smoothScroll, int splilinecolor, float splilinewidth, float topoffset, float bottomoffset)
+    {
+        this.viewPager = viewPager;
+        this.txtUnselectedColor = unselectedcolor;
+        this.txtSelectedColor = setectedcolor;
+        this.txtUnselectedSize = txtUnselectedSize;
+        this.txtSelectedSize = txtSelectedSize;
+        this.widOffset = dip2px(context, widOffset);
+
+        viewPager.setCurrentItem(currentPosition);
+        setTitles(context, titles, smoothScroll, splilinecolor, splilinewidth, topoffset, bottomoffset);
         setUnselectedTxtColor(context, unselectedcolor, txtUnselectedSize);
         setSelectedTxtColor(context, setectedcolor, txtSelectedSize, currentPosition);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
