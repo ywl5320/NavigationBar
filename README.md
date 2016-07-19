@@ -9,7 +9,7 @@ XML布局：<br/>
             android:background="#ffffff"/>
 
 实例图片：<br/>
-![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/sbar.gif)<br/>
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/tabs.gif)<br/>
 <br/>
 更多实例图片：<br/>
 ####1、
