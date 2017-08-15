@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ywl5320.navigationbar.bar.NavitationFollowScrollLayout;
 import com.ywl5320.navigationbar.bar.NavitationLayout;
 import com.ywl5320.navigationbar.bar.NavitationScrollLayout;
 import com.ywl5320.navigationbar.bar.TabNavitationLayout;
@@ -17,9 +18,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NavitationScrollLayout navitationScrollLayout;
+    private NavitationFollowScrollLayout navitationFollowScrollLayout;
     private ViewPager viewPager;
-    private String[] titles = new String[]{"标题一", "标题二", "标题三", "标题四", "标题五", "标题六", "标题七","标题八"};
+    private String[] titles = new String[]{"标题一", "标题二", "标题三", "标题四", "标题五", "标题六", "标题七","标题八","标题九", "标题十"};
     private ViewPagerAdapter viewPagerAdapter;
     private List<Fragment> fragments;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager1 = (ViewPager) findViewById(R.id.viewpager1);
         viewPager2 = (ViewPager) findViewById(R.id.viewpager2);
 
-        navitationScrollLayout = (NavitationScrollLayout) findViewById(R.id.bar);
+        navitationFollowScrollLayout = (NavitationFollowScrollLayout) findViewById(R.id.bar);
         navitationLayout = (NavitationLayout) findViewById(R.id.bar1);
         tabNavitationLayout = (TabNavitationLayout) findViewById(R.id.bar2);
 
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new ChildFragment());
         fragments.add(new ChildFragment());
         fragments.add(new ChildFragment());
+        fragments.add(new ChildFragment());
+        fragments.add(new ChildFragment());
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -78,20 +81,20 @@ public class MainActivity extends AppCompatActivity {
         navitationLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
 
-        navitationScrollLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 12, true, R.color.color_333333, 0f, 15f, 15f, 100);
-        navitationScrollLayout.setBgLine(this, 1, R.color.colorAccent);
-        navitationScrollLayout.setNavLine(this, 3, R.color.colorPrimary);
+        navitationFollowScrollLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 12, true, R.color.color_333333, 0f, 15f, 15f, 100);
+        navitationFollowScrollLayout.setBgLine(this, 1, R.color.colorAccent);
+        navitationFollowScrollLayout.setNavLine(this, 3, R.color.colorPrimary);
 
         tabNavitationLayout.setViewPager(this, titles2, viewPager2, R.drawable.drawable_left, R.drawable.drawable_mid, R.drawable.drawable_right, R.color.color_ffffff, R.color.color_282d31, 16, 0, 1f, true);
 
-        navitationScrollLayout.setOnTitleClickListener(new NavitationScrollLayout.OnTitleClickListener() {
+        navitationFollowScrollLayout.setOnTitleClickListener(new NavitationFollowScrollLayout.OnTitleClickListener() {
             @Override
             public void onTitleClick(View v) {
                 Toast.makeText(MainActivity.this, ((TextView)v).getText(), Toast.LENGTH_SHORT).show();
             }
         });
 
-        navitationScrollLayout.setOnNaPageChangeListener(new NavitationScrollLayout.OnNaPageChangeListener() {
+        navitationFollowScrollLayout.setOnNaPageChangeListener(new NavitationFollowScrollLayout.OnNaPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 

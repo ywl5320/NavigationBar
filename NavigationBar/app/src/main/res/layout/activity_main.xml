@@ -60,7 +60,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
-        <com.ywl5320.navigationbar.bar.NavitationScrollLayout
+        <com.ywl5320.navigationbar.bar.NavitationFollowScrollLayout
             android:id="@+id/bar"
             android:layout_width="match_parent"
             android:layout_height="50dp"

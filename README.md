@@ -1,9 +1,15 @@
 # NavigationBar
-####标题导航栏，两三句代码即可实现
-####博客地址：http://blog.csdn.net/ywl5320/article/details/51866799
+#标题导航栏，两三句代码即可实现
+##博客地址：http://blog.csdn.net/ywl5320/article/details/51866799
 XML布局：<br/>
 
         <com.ywl5320.navigationbar.bar.NavitationLayout
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ffffff"/>
+
+	<com.ywl5320.navigationbar.bar.NavitationFollowScrollLayout
             android:id="@+id/bar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -13,7 +19,10 @@ XML布局：<br/>
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/tabs.gif)<br/>
 <br/>
 更多实例图片：<br/>
-####1、
+##update:
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav5.gif)<br/>
+
+##1、
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav1.gif)<br/>
 代码如下：<br/>
 
@@ -33,7 +42,7 @@ XML布局：<br/>
         navitationLayout.setViewPager(this, titles, viewPager, R.color.color_333333, R.color.color_2581ff, 16, 16, 0, 0, true);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
         
-####2、
+##2、
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav2.gif)<br/>
 代码如下：<br/>
 
@@ -41,7 +50,7 @@ XML布局：<br/>
         navitationLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
         
-####3、
+##3、
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav3.gif)<br/>
 代码如下：<br/>
 
@@ -49,7 +58,7 @@ XML布局：<br/>
         navitationLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);
         
-####4、
+##4、
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/nav4.gif)<br/>
 代码如下：<br/>
 
@@ -57,7 +66,7 @@ XML布局：<br/>
         navitationLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationLayout.setNavLine(this, 3, R.color.colorPrimary, 0);<br/>
 
-####5、
+##5、
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/img5.gif)
 代码如下：<br/>
 
