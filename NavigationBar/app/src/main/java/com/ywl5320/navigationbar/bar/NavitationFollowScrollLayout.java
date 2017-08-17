@@ -191,14 +191,14 @@ public class NavitationFollowScrollLayout extends RelativeLayout{
      * @param bottomoffset 分割线下边距
      * @param titlewidth 标题子选项宽度
      */
-    public void setViewPager(final Context context, String[] titles, ViewPager viewPager, final int unselectedcolor, final int setectedcolor, int txtUnselectedSize, final int txtSelectedSize, final int widOffset, boolean smoothScroll, int splilinecolor, final float splilinewidth, float topoffset, float bottomoffset, final int titlewidth)
+    public void setViewPager(final Context context, String[] titles, ViewPager viewPager, final int unselectedcolor, final int setectedcolor, int txtUnselectedSize, final int txtSelectedSize, final int widOffsets, boolean smoothScroll, int splilinecolor, final float splilinewidth, float topoffset, float bottomoffset, final int titlewidth)
     {
         this.viewPager = viewPager;
         this.txtUnselectedColor = unselectedcolor;
         this.txtSelectedColor = setectedcolor;
         this.txtUnselectedSize = txtUnselectedSize;
         this.txtSelectedSize = txtSelectedSize;
-        this.widOffset = dip2px(context, widOffset);
+        this.widOffset = dip2px(context, widOffsets);
         this.twidth = splilinewidth + titlewidth;
         this.length = titles.length;
 
@@ -256,14 +256,7 @@ public class NavitationFollowScrollLayout extends RelativeLayout{
                 soldl = l;
                 sum += offset;
                 LayoutParams lp = (LayoutParams) navLine.getLayoutParams();
-                if(offset > 0)
-                {
-                    lp.setMargins(widOffset * (cuPosition + 1) + (-sum) + lp.width * cuPosition + widOffset * 2 * cuPosition + widOffset, 0, 0, 0);
-                }
-                else
-                {
-                    lp.setMargins(widOffset * (cuPosition + 1) + (-sum) + lp.width * cuPosition + widOffset * 2 * cuPosition + widOffset, 0, 0, 0);
-                }
+                lp.setMargins(widOffset * 1 * (cuPosition + 1) - sum + lp.width * cuPosition + cuPosition * widOffset * 1, 0, 0, 0);
                 navLine.requestLayout();
             }
         });
