@@ -1,7 +1,10 @@
 # NavigationBar
+
+## [我的视频课程（基础）：《（NDK）FFmpeg打造Android万能音频播放器》](https://edu.csdn.net/course/detail/6842)
+## [我的视频课程（进阶）：《（NDK）FFmpeg打造Android视频播放器》](https://edu.csdn.net/course/detail/8036)
+
 ## 标题导航栏，两三句代码即可实现
 ## 博客地址：http://blog.csdn.net/ywl5320/article/details/51866799
-## [我的视频课程：《FFmpeg打造Android万能音频播放器》](https://edu.csdn.net/course/detail/6842)
 XML布局：<br/>
 
         <com.ywl5320.navigationbar.bar.NavitationLayout
