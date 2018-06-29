@@ -21,6 +21,8 @@ XML布局：<br/>
 
 实例图片：<br/>
 ![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/tabs.gif)<br/>
+NavitationFollowScrollLayout初始化选择指定标题位置
+![image](https://github.com/wanliyang1990/NavigationBar/blob/master/imgs/init.gif)<br/>
 <br/>
 更多实例图片：<br/>
 ## update:

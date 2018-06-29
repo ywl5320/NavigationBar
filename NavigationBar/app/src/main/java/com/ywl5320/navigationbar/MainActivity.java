@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         navitationFollowScrollLayout.setBgLine(this, 1, R.color.colorAccent);
         navitationFollowScrollLayout.setNavLine(this, 3, R.color.colorPrimary);
 
+
         tabNavitationLayout.setViewPager(this, titles2, viewPager2, R.drawable.drawable_left, R.drawable.drawable_mid, R.drawable.drawable_right, R.color.color_ffffff, R.color.color_282d31, 16, 0, 1f, true);
 
         navitationFollowScrollLayout.setOnTitleClickListener(new NavitationFollowScrollLayout.OnTitleClickListener() {
@@ -111,5 +112,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        navitationFollowScrollLayout.setCurrentItem(3);
     }
 }

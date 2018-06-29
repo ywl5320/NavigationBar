@@ -17,6 +17,7 @@ import android.widget.TextView;
  */
 public class NavitationFollowScrollLayout extends RelativeLayout{
 
+    private Context context;
     private TextView[] textViews; // 标题栏数组，用于存储要显示的标题
     private LinearLayout titleLayout; //标题栏父控件
     private CusHorizontalScrollView horizontalScrollView; //横向scrollview
@@ -55,7 +56,7 @@ public class NavitationFollowScrollLayout extends RelativeLayout{
 
     public NavitationFollowScrollLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
+        this.context = context;
         margleft = dip2px(context, 0);
         titleLayout = new LinearLayout(context);
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
@@ -308,6 +309,22 @@ public class NavitationFollowScrollLayout extends RelativeLayout{
                     textViews[i].setTextSize(txtUnselectedSize);
                 }
             }
+        }
+    }
+
+    public void setCurrentItem(final int index)
+    {
+        if(textViews != null && index >= 0 && index < textViews.length)
+        {
+            viewPager.setCurrentItem(index);
+            moveBar(navLine, navWidth, widOffset, index, horizontalScrollView);
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    horizontalScrollView.smoothScrollTo(index * dip2px(getContext(), twidth) - leftm, 0);
+                    setSelectedTxtColor(context, txtSelectedColor, txtSelectedSize, index);
+                }
+            });
         }
     }
 
