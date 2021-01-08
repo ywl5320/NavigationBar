@@ -1,7 +1,8 @@
-package com.bhs.picture.widget.bar;
+package com.ywl5320.navigationbar.bar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -11,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.viewpager2.widget.ViewPager2;
 
 /**
  * Created by ywl on 2016/7/17.
@@ -22,7 +22,7 @@ public class NavitationFollowScrollLayout extends RelativeLayout {
     private TextView[] textViews; // 标题栏数组，用于存储要显示的标题
     private LinearLayout titleLayout; //标题栏父控件
     private CusHorizontalScrollView horizontalScrollView; //横向scrollview
-    private ViewPager2 viewPager;
+    private ViewPager viewPager;
 
     private View bgLine; //导航背景色
     private View navLine; //导航条颜色
@@ -182,7 +182,7 @@ public class NavitationFollowScrollLayout extends RelativeLayout {
      * @param bottomoffset      分割线下边距
      * @param titlewidth        标题子选项宽度
      */
-    public void setViewPager(final Context context, String[] titles, ViewPager2 viewPager, final int unselectedcolor, final int setectedcolor, int txtUnselectedSize, final int txtSelectedSize, final int widOffsets, boolean smoothScroll, int splilinecolor, final float splilinewidth, float topoffset, float bottomoffset, final int titlewidth) {
+    public void setViewPager(final Context context, String[] titles, ViewPager viewPager, final int unselectedcolor, final int setectedcolor, int txtUnselectedSize, final int txtSelectedSize, final int widOffsets, boolean smoothScroll, int splilinecolor, final float splilinewidth, float topoffset, float bottomoffset, final int titlewidth) {
         this.viewPager = viewPager;
         this.txtUnselectedColor = unselectedcolor;
         this.txtSelectedColor = setectedcolor;
@@ -198,7 +198,7 @@ public class NavitationFollowScrollLayout extends RelativeLayout {
         setSelectedTxtColor(context, setectedcolor, txtSelectedSize, 0);
 
 
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 if (position == 0) {
